@@ -1,39 +1,55 @@
 #!/usr/bin/env ruby
 class Player
-  attr_accessor :name, :num_of_games, :num_of_wins, :num_of_losses
-
-  def initialize(name)
+  attr_accessor :name, :sign, :num_of_games, :num_of_wins, :num_of_losses
+  def initialize(name, sign)
     @name = name
+    @sign = sign
     # num_of_games = 0
     # num_of_wins = 0
     # num_of_losses = 0
   end
 end
-
+def update_board(board, input_num, replace)
+  board.gsub(input_num, replace)
+end
 puts
 puts 'Welcome to Tic-Tac-Toe!'
 puts
 puts 'Enter name for player 1: '
 player_one = gets.chomp
-player1 = Player.new(player_one)
+player1 = Player.new(player_one, 'x')
 puts
 puts 'Enter name for player 2: '
 player_two = gets.chomp
-player2 = Player.new(player_two)
+player2 = Player.new(player_two, 'o')
 puts
 puts 'The game will start now!'
 puts "#{player1.name} will be X & #{player2.name} will be O."
-puts 'Game Instructions: Choose a number to place your move!'
+puts 'Game Instructions: Choose a available number to place your move!'
 puts 'Have fun!'
-puts
-puts
-puts '| 1 | 2 | 3 |
+board = '| 1 | 2 | 3 |
 | 4 | 5 | 6 |
 | 7 | 8 | 9 |'
-puts
-puts "#{player1.name} make your move: "
-# player1_move = gets.chomp
-puts
-puts "#{player2.name} make your move: "
-# player2_move = gets.chomp
-puts
+players = [player1, player2]
+player = players[0]
+game_on = true
+while game_on
+  puts
+  puts board
+  puts
+  puts "#{player.name} make your move: "
+  player_move = gets.chomp.to_s
+  puts
+  board = update_board(board, player_move, player.sign)
+  player = if player == players[0]
+             players[1]
+           else
+             players[0]
+           end
+  # puts 'Invalid Input' unless move.to_i.is_a? Integer
+  # puts 'You won congrats this is a winning move!'
+  # puts 'You draw congrats this is a draw move!'
+  # winner = false
+  # game_on = false if winner
+  puts
+end
