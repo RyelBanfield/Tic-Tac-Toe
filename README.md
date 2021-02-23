@@ -38,7 +38,7 @@ To get a local copy up and running follow these simple example steps.
 
 - GitHub: [@RyelBanfield](https://github.com/RyelBanfield)
 - Twitter: [@RyelBanfield](https://twitter.com/RyelBanfield)
-- LinkedIn: [RyelBanfield](https://linkedin.com/RyelBanfield)
+- LinkedIn: [RyelBanfield](https://www.linkedin.com/in/ryel-banfield/)
 
 👤 **Author2**
 
