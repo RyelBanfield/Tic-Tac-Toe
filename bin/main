@@ -10,7 +10,6 @@ class Player
   end
 end
 
-
 puts
 puts 'Welcome to Tic-Tac-Toe!'
 puts
@@ -41,15 +40,10 @@ while game_on
   puts
 
   move = gets.chomp
-  if !move.to_i.is_a? Integer
-    puts "Invalid Input"
-  end
-  puts "You won congrats this is a winning move!"
-  puts "You draw congrats this is a draw move!"
+  puts 'Invalid Input' unless move.to_i.is_a? Integer
+  puts 'You won congrats this is a winning move!'
+  puts 'You draw congrats this is a draw move!'
   winner = false
-  if winner
-    game_on = false
-  end
-  puts 
+  game_on = false if winner
+  puts
 end
-
