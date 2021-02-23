@@ -10,6 +10,7 @@ class Player
   end
 end
 
+
 puts
 puts 'Welcome to Tic-Tac-Toe!'
 puts
@@ -22,18 +23,33 @@ player_two = gets.chomp
 player2 = Player.new(player_two)
 puts
 puts 'The game will start now!'
-puts "#{player1.name} will be X & #{player2.name} will be O."
-puts 'Game Instructions: Choose a number to place your move!'
-puts 'Have fun!'
-puts
-puts
-puts '| 1 | 2 | 3 |
-| 4 | 5 | 6 |
-| 7 | 8 | 9 |'
-puts
-puts "#{player1.name} make your move: "
-# player1_move = gets.chomp
-puts
-puts "#{player2.name} make your move: "
-# player2_move = gets.chomp
-puts
+
+game_on = true
+
+while game_on
+  puts "#{player1.name} will be X & #{player2.name} will be O."
+  puts 'Game Instructions: Choose a available number to place your move!'
+  puts 'Have fun!'
+  puts
+  puts
+  puts '| 1 | 2 | 3 |
+  | 4 | 5 | 6 |
+  | 7 | 8 | 9 |'
+  puts
+  puts "#{player1.name} make your move: "
+  # player1_move = gets.chomp
+  puts
+
+  move = gets.chomp
+  if !move.to_i.is_a? Integer
+    puts "Invalid Input"
+  end
+  puts "You won congrats this is a winning move!"
+  puts "You draw congrats this is a draw move!"
+  winner = false
+  if winner
+    game_on = false
+  end
+  puts 
+end
+
