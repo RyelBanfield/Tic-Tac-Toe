@@ -4,9 +4,9 @@ class Player
 
   def initialize(name)
     @name = name
-    num_of_games = 0
-    num_of_wins = 0
-    num_of_losses = 0
+    # num_of_games = 0
+    # num_of_wins = 0
+    # num_of_losses = 0
   end
 end
 
@@ -32,10 +32,8 @@ puts '| 1 | 2 | 3 |
 | 7 | 8 | 9 |'
 puts
 puts "#{player1.name} make your move: "
-player1_move = gets.chomp
+# player1_move = gets.chomp
 puts
 puts "#{player2.name} make your move: "
-player2_move = gets.chomp
-puts 
-
-  
+# player2_move = gets.chomp
+puts
