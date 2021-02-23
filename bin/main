@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 class Player
   attr_accessor :name, :sign, :num_of_games, :num_of_wins, :num_of_losses
+
   def initialize(name, sign)
     @name = name
     @sign = sign
@@ -9,6 +10,7 @@ class Player
     # num_of_losses = 0
   end
 end
+
 def update_board(board, input_num, replace)
   board.gsub(input_num, replace)
 end
@@ -41,11 +43,8 @@ while game_on
   player_move = gets.chomp.to_s
   puts
   board = update_board(board, player_move, player.sign)
-  player = if player == players[0]
-             players[1]
-           else
-             players[0]
-           end
+  player = player == players[0] ? players[1] : players[0]
+
   # puts 'Invalid Input' unless move.to_i.is_a? Integer
   # puts 'You won congrats this is a winning move!'
   # puts 'You draw congrats this is a draw move!'
