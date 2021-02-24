@@ -4,9 +4,6 @@ class Player
 
   def initialize(name)
     @name = name
-    # num_of_games = 0
-    # num_of_wins = 0
-    # num_of_losses = 0
   end
 end
 
@@ -22,13 +19,13 @@ player_two = gets.chomp
 player2 = Player.new(player_two)
 puts
 puts 'The game will start now!'
+puts "#{player1.name} will be X & #{player2.name} will be O."
+puts 'Game Instructions: Choose a available number to place your move!'
+puts 'Have fun!'
 
 game_on = true
 
 while game_on
-  puts "#{player1.name} will be X & #{player2.name} will be O."
-  puts 'Game Instructions: Choose a available number to place your move!'
-  puts 'Have fun!'
   puts
   puts
   puts '| 1 | 2 | 3 |
@@ -36,7 +33,6 @@ while game_on
   | 7 | 8 | 9 |'
   puts
   puts "#{player1.name} make your move: "
-  # player1_move = gets.chomp
   puts
 
   move = gets.chomp
