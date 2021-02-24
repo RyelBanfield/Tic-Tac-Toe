@@ -12,24 +12,47 @@ class Player
 end
 
 class Game
-  attr_accessor :board_ui, :board_logic
+    attr_accessor :board_ui, :board_logic
+    def initialize
+      @board_ui = '| 1 | 2 | 3 |
+  | 4 | 5 | 6 |
+  | 7 | 8 | 9 |'
+      @board_logic = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    end
 
-  def initialize
-    @board_ui = '| 1 | 2 | 3 |
-| 4 | 5 | 6 |
-| 7 | 8 | 9 |'
-    @board_logic = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-  end
+    def update_board_ui(board_ui, board_number, user_sign)
+      board_ui.gsub(board_number, user_sign)
+    end
 
-  def update_board_ui(board_ui, board_number, user_sign)
-    board_ui.gsub(board_number, user_sign)
-  end
+    def update_board_logic(board_logic, board_number, user_sign)
 
-  def update_board_logic(board_logic, board_number, user_sign)
-    board_logic.each.each { |item| board_number = user_sign if item == board_number }
-  end
+      board_logic.map! { |array| array.map! { |item| item = item == board_number? user_sign :item} }
 
-  def winning_condition(board_logic); end
+    end
+
+    def winning_condition(board_logic); 
+      #check the rows 
+      board_logic.each do |array|
+        return true if array.all?(array[0]==true) 
+      end
+
+      #check the coulmns 
+      board_logic.length-1.times do |i|
+        if board_logic[0][i] == board_logic[1][i] && 
+          board_logic[1][i] ==board_logic[2][i]
+          return true
+        end
+      end
+      
+      #check the diagonal
+        if (board_logic[0][0] == board_logic[1][1] && 
+          board_logic[1][1] == board_logic[2][2]) ||
+          (board_logic[0][2] == board_logic[1][1] && 
+          board_logic[1][1] == board_logic[2][0])
+          return true
+        end
+      false
+    end
 end
 
 puts
@@ -51,7 +74,7 @@ players = [player1, player2]
 player = players[0]
 game_on = true
 moves = 0
-while moves <= 9 && game_on
+while moves < 9 && game_on
   puts
   puts board
   puts
@@ -67,5 +90,5 @@ while moves <= 9 && game_on
   # winner = false
   # game_on = false if winner
   puts
-  move += 1
+  moves += 1
 end
