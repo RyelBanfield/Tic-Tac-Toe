@@ -76,6 +76,13 @@ while game_on
   puts "#{player1.name} make your move: "
   move = gets.chomp
   puts 'You win.'
+  puts '  | 1 | 2 | 3 |
+  | 4 | 5 | 6 |
+  | 7 | 8 | 9 |'
+  puts
+  puts "#{player2.name} make your move: "
+  move = gets.chomp
+  puts 'You draw.'
   game_on = false
   move = move.to_i
 end
