@@ -33,13 +33,49 @@ while game_on
   | 7 | 8 | 9 |'
   puts
   puts "#{player1.name} make your move: "
-  puts
-
   move = gets.chomp
-  puts 'Invalid move. Please enter a number from (1-9)' unless move.to_i.is_a? Integer
-  winner = false
-  game_on = false if winner
   puts
+  puts '| 1 | 2 | 3 |
+  | 4 | 5 | 6 |
+  | 7 | 8 | 9 |'
+  puts
+  puts "#{player2.name} make your move: "
+  move = gets.chomp
+  puts
+  puts '  | 1 | 2 | 3 |
+  | 4 | 5 | 6 |
+  | 7 | 8 | 9 |'
+  puts
+  puts "#{player1.name} make your move: "
+  move = gets.chomp
+  puts 'Invalid move. Please enter a number from (1-9)'
+  move = gets.chomp
+  puts
+  puts "#{player2.name} make your move: "
+  move = gets.chomp
+  puts 'You won congrats this is a winning move!'
+  puts
+  puts '| 1 | 2 | 3 |
+  | 4 | 5 | 6 |
+  | 7 | 8 | 9 |'
+  puts
+  puts "#{player1.name} make your move: "
+  move = gets.chomp
+  puts
+  puts '| 1 | 2 | 3 |
+  | 4 | 5 | 6 |
+  | 7 | 8 | 9 |'
+  puts
+  puts "#{player2.name} make your move: "
+  move = gets.chomp
+  puts
+  puts '  | 1 | 2 | 3 |
+  | 4 | 5 | 6 |
+  | 7 | 8 | 9 |'
+  puts
+  puts "#{player1.name} make your move: "
+  move = gets.chomp
+  puts 'You win.'
+  game_on = false
+  move = move.to_i
 end
-puts 'You won congrats this is a winning move!'
-puts 'You draw congrats this is a draw move!'
