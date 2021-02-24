@@ -29,29 +29,28 @@ class Game
     @board_logic = @board_logic.map! { |array| array.map! { |item| item == player_move.to_i ? player_sign : item } }
   end
 
-  def winning_condition
-    # check the rows
+  def row_win
     board_logic.each do |array|
       return true if array.all?(array[0]) == true
     end
+  end
 
-    # check the coulmns
+  def column_win
     board_logic.length.times do |i|
-      if board_logic[0][i] == board_logic[1][i] &&
-         board_logic[1][i] == board_logic[2][i]
-        return true
-      end
+      true if board_logic[0][i] == board_logic[1][i] &&
+                   board_logic[1][i] == board_logic[2][i]
     end
+  end
 
-    # check the diagonal
-    if (board_logic[0][0] == board_logic[1][1] &&
+  def diagonal_win
+    true if (board_logic[0][0] == board_logic[1][1] &&
       board_logic[1][1] == board_logic[2][2]) ||
-       (board_logic[0][2] == board_logic[1][1] &&
-       board_logic[1][1] == board_logic[2][0])
-      return true
-    end
+            (board_logic[0][2] == board_logic[1][1] &&
+            board_logic[1][1] == board_logic[2][0])
+  end
 
-    false
+  def winning_condition
+    puts row_win
   end
 end
 
