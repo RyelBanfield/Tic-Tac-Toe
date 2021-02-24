@@ -21,18 +21,18 @@ class Game
     @board_logic = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
   end
 
-  def update_board_ui(board_number, user_sign)
-    @board_ui.gsub(board_number, user_sign)
+  def update_board_ui(player_move, player_sign)
+    @board_ui.gsub!(player_move, player_sign)
   end
 
-  def update_board_logic(board_number, user_sign)
-    @board_logic.map! { |array| array.map! { |item| item == board_number ? user_sign : item } }
+  def update_board_logic(player_move, player_sign)
+    @board_logic = @board_logic.map! { |array| array.map! { |item| item == player_move.to_i ? player_sign : item } }
   end
 
-  def winning_condition(board_logic)
+  def winning_condition
     # check the rows
     board_logic.each do |array|
-      return true if array.all?(array[0] == true)
+      return true if array.all?(array[0]) == true
     end
 
     # check the coulmns
@@ -59,34 +59,40 @@ puts
 puts 'Welcome to Tic-Tac-Toe!'
 puts
 puts 'Enter name for player 1: '
-player_one = gets.chomp
-player1 = Player.new(player_one, 'x')
+player_one = gets.chomp.capitalize
+player1 = Player.new(player_one, 'X')
 puts
 puts 'Enter name for player 2: '
-player_two = gets.chomp
-player2 = Player.new(player_two, 'o')
+player_two = gets.chomp.capitalize
+player2 = Player.new(player_two, 'O')
 puts
 game = Game.new
-board_ui = game.board_ui
-board_logic = game.board_logic
-
-puts 'The game will start now!'
 puts "#{player1.name} will be X & #{player2.name} will be O."
+puts
 puts 'Game Instructions: Choose a available number to place your move!'
+puts 'The game will start now!'
 puts 'Have fun!'
 players = [player1, player2]
 player = players[0]
 game_on = true
 moves = 0
-while moves < 9 && game_on
+while moves <= 9 && game_on
   puts
   puts game.board_ui
   puts
-  puts "#{player.name} make your move: "
-  player_move = gets.chomp.to_s
-  puts
-  game.update_board_ui(player_move, player.sign)
-  player = player == players[0] ? players[1] : players[0]
-  puts
+  if moves < 9
+    puts "#{player.name} make your move: "
+    player_move = gets.chomp.to_s
+    game.update_board_ui(player_move, player.sign)
+    game.update_board_logic(player_move, player.sign)
+    if game.winning_condition
+      puts
+      puts game.board_ui
+      puts
+      puts "#{player.name} has won the game!"
+      game_on = false
+    end
+    player = player == players[0] ? players[1] : players[0]
+  end
   moves += 1
 end
