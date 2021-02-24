@@ -21,12 +21,12 @@ class Game
     @board_logic = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
   end
 
-  def update_board_ui(board_ui, board_number, user_sign)
-    board_ui.gsub(board_number, user_sign)
+  def update_board_ui(board_number, user_sign)
+    @board_ui.gsub(board_number, user_sign)
   end
 
-  def update_board_logic(board_logic, board_number, user_sign)
-    board_logic.map! { |array| array.map! { |item| item == board_number ? user_sign : item } }
+  def update_board_logic(board_number, user_sign)
+    @board_logic.map! { |array| array.map! { |item| item == board_number ? user_sign : item } }
   end
 
   def winning_condition(board_logic)
@@ -66,6 +66,10 @@ puts 'Enter name for player 2: '
 player_two = gets.chomp
 player2 = Player.new(player_two, 'o')
 puts
+game = Game.new
+board_ui = game.board_ui
+board_logic = game.board_logic
+
 puts 'The game will start now!'
 puts "#{player1.name} will be X & #{player2.name} will be O."
 puts 'Game Instructions: Choose a available number to place your move!'
@@ -76,19 +80,13 @@ game_on = true
 moves = 0
 while moves < 9 && game_on
   puts
-  puts board
+  puts game.board_ui
   puts
   puts "#{player.name} make your move: "
   player_move = gets.chomp.to_s
   puts
-  board = update_board(board, player_move, player.sign)
+  game.update_board_ui(player_move, player.sign)
   player = player == players[0] ? players[1] : players[0]
-
-  # puts 'Invalid Input' unless move.to_i.is_a? Integer
-  # puts 'You won congrats this is a winning move!'
-  # puts 'You draw congrats this is a draw move!'
-  # winner = false
-  # game_on = false if winner
   puts
   moves += 1
 end
