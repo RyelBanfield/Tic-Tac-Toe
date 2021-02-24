@@ -18,7 +18,7 @@ class Game
     @board_ui = '| 1 | 2 | 3 |
 | 4 | 5 | 6 |
 | 7 | 8 | 9 |'
-    @board_logic = [[1,2,3],[4,5,6],[7,8,9]]
+    @board_logic = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
   end
 
   def update_board_ui(board_ui, board_number, user_sign)
@@ -29,12 +29,8 @@ class Game
     board_logic.each.each { |item| board_number = user_sign if item == board_number }
   end
 
-  def winning_condition(board_logic)
-    
-  end
+  def winning_condition(board_logic); end
 end
-
-
 
 puts
 puts 'Welcome to Tic-Tac-Toe!'
