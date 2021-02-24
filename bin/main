@@ -11,9 +11,31 @@ class Player
   end
 end
 
-def update_board(board, input_num, replace)
-  board.gsub(input_num, replace)
+class Game
+  attr_accessor :board_ui, :board_logic
+
+  def initialize
+    @board_ui = '| 1 | 2 | 3 |
+| 4 | 5 | 6 |
+| 7 | 8 | 9 |'
+    @board_logic = [[1,2,3],[4,5,6],[7,8,9]]
+  end
+
+  def update_board_ui(board_ui, board_number, user_sign)
+    board_ui.gsub(board_number, user_sign)
+  end
+
+  def update_board_logic(board_logic, board_number, user_sign)
+    board_logic.each.each { |item| board_number = user_sign if item == board_number }
+  end
+
+  def winning_condition(board_logic)
+    
+  end
 end
+
+
+
 puts
 puts 'Welcome to Tic-Tac-Toe!'
 puts
@@ -29,13 +51,11 @@ puts 'The game will start now!'
 puts "#{player1.name} will be X & #{player2.name} will be O."
 puts 'Game Instructions: Choose a available number to place your move!'
 puts 'Have fun!'
-board = '| 1 | 2 | 3 |
-| 4 | 5 | 6 |
-| 7 | 8 | 9 |'
 players = [player1, player2]
 player = players[0]
 game_on = true
-while game_on
+moves = 0
+while moves <= 9 && game_on
   puts
   puts board
   puts
@@ -51,4 +71,5 @@ while game_on
   # winner = false
   # game_on = false if winner
   puts
+  move += 1
 end
