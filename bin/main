@@ -30,29 +30,24 @@ class Game
   end
 
   def row_win
-    board_logic.each do |array|
-        true if array.all?(array[0])==true
-    end
-    false
+    true if (board_logic[0][0] == board_logic[0][1] && board_logic[0][1] == board_logic[0][2]) ||
+            (board_logic[1][0] == board_logic[1][1] && board_logic[1][1] == board_logic[1][2]) ||
+            (board_logic[2][0] == board_logic[2][1] && board_logic[2][1] == board_logic[2][2])
   end
 
   def column_win
-    board_logic.length.times do |i|
-      true if board_logic[0][i] == board_logic[1][i] &&
-                   board_logic[1][i] == board_logic[2][i]
-    end
-    false
+    true if (board_logic[0][0] == board_logic[1][0] && board_logic[1][0] == board_logic[2][0]) ||
+            (board_logic[0][1] == board_logic[1][1] && board_logic[1][1] == board_logic[2][1]) ||
+            (board_logic[0][2] == board_logic[1][2] && board_logic[1][2] == board_logic[2][2])
   end
 
   def diagonal_win
-    true if (board_logic[0][0] == board_logic[1][1] &&
-      board_logic[1][1] == board_logic[2][2]) ||
-            (board_logic[0][2] == board_logic[1][1] &&
-            board_logic[1][1] == board_logic[2][0])
+    true if (board_logic[0][0] == board_logic[1][1] && board_logic[1][1] == board_logic[2][2]) ||
+            (board_logic[0][2] == board_logic[1][1] && board_logic[1][1] == board_logic[2][0])
   end
 
   def winning_condition
-     row_win||column_win||diagonal_win 
+    row_win || column_win || diagonal_win
   end
 end
 
