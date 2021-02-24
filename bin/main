@@ -40,10 +40,10 @@ while game_on
   puts
 
   move = gets.chomp
-  puts 'Invalid Input' unless move.to_i.is_a? Integer
-  puts 'You won congrats this is a winning move!'
-  puts 'You draw congrats this is a draw move!'
+  puts 'Invalid move. Please enter a number from (1-9)' unless move.to_i.is_a? Integer
   winner = false
   game_on = false if winner
   puts
 end
+puts 'You won congrats this is a winning move!'
+puts 'You draw congrats this is a draw move!'
