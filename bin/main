@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+require_relative '../lib/player'
+require_relative '../lib/game'
+
+require 'colorize'
+
+puts
+puts 'Welcome to Tic-Tac-Toe!'.blue
+puts
+puts 'Enter name for player 1: '
+player_one = gets.chomp.capitalize
+player_one = Player.new(player_one, 'X', :blue)
+puts
+puts 'Enter name for player 2: '
+player_two = gets.chomp.capitalize
+player_two = Player.new(player_two, 'O', :red)
+puts
+game = Game.new
+puts "#{player_one.name} will be X & #{player_two.name} will be O."
+puts
+puts 'Game Instructions: Choose a available number to place your move!'
+puts 'The game will start now!'.blue.on_red
+puts 'Have fun!'
+players = [player_one, player_two]
+player = players[0]
+game_on = true
+moves = 0
+
+while moves <= 9 && game_on
+  puts
+  puts game.board_ui.colorize(:light_blue)
+  puts
+  if moves < 9
+    puts "#{player.name} make your move: ".colorize(player.color)
+    player_choice = gets.chomp.to_s
+    until game.valid_move?(player_choice)
+      puts
+      puts 'Enter an available number please!'
+      player_choice = gets.chomp.to_s
+    end
+    game.update_board_ui(player_choice.strip, player.sign)
+    game.update_board_logic(player_choice.strip, player.sign)
+    if game.winning_condition
+      puts
+      puts game.board_ui
+      puts
+      puts "#{player.name} has won the game!".colorize(player.color)
+      game_on = false
+    end
+    player = player == players[0] ? players[1] : players[0]
+  else
+    puts 'This game is a draw'
+  end
+  moves += 1
+end
