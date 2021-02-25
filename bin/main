@@ -43,7 +43,7 @@ while moves <= 9 && game_on
       puts
       puts game.board_ui
       puts
-      puts "#{player.name} has won the game!"
+      puts "#{player.name} has won the game!".colorize(player.color)
       game_on = false
     end
     player = player == players[0] ? players[1] : players[0]
