@@ -6,19 +6,19 @@ puts 'Welcome to Tic-Tac-Toe!'
 puts
 puts 'Enter name for player 1: '
 player_one = gets.chomp.capitalize
-player1 = Player.new(player_one, 'X')
+player_one = Player.new(player_one, 'X')
 puts
 puts 'Enter name for player 2: '
 player_two = gets.chomp.capitalize
-player2 = Player.new(player_two, 'O')
+player_two = Player.new(player_two, 'O')
 puts
 game = Game.new
-puts "#{player1.name} will be X & #{player2.name} will be O."
+puts "#{player_one.name} will be X & #{player_two.name} will be O."
 puts
 puts 'Game Instructions: Choose a available number to place your move!'
 puts 'The game will start now!'
 puts 'Have fun!'
-players = [player1, player2]
+players = [player_one, player_two]
 player = players[0]
 game_on = true
 moves = 0
@@ -28,9 +28,9 @@ while moves <= 9 && game_on
   puts
   if moves < 9
     puts "#{player.name} make your move: "
-    player_move = gets.chomp.to_s
-    game.update_board_ui(player_move, player.sign)
-    game.update_board_logic(player_move, player.sign)
+    player_choice = gets.chomp.to_s
+    game.update_board_ui(player_choice, player.sign)
+    game.update_board_logic(player_choice, player.sign)
     if game.winning_condition
       puts
       puts game.board_ui
