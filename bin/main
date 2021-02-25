@@ -28,7 +28,7 @@ moves = 0
 
 while moves <= 9 && game_on
   puts
-  puts game.board_ui
+  puts game.board_ui.colorize(:light_blue)
   puts
   if moves < 9
     puts "#{player.name} make your move: ".colorize(player.color)
