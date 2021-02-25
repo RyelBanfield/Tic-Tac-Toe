@@ -41,16 +41,16 @@ To get a local copy up and running follow these simple example steps.
   - Clone the repository on local machine by open cmd or terminal
    ```git clone https://github.com/RyelBanfield/Tic-Tac-Toe.git```
   Or press green button Code > Download ZIP
-  - Extract the file and navigate to the bin direcory 
+  - Extract the file and navigate to the bin direcory.
   ```cd Tic-Tac-Toe```
   ```cd bin```
   - Run the game by ```./main.rb```
 
 ### Gameplay Instructions
-  - After running the game enter the player 1 name
-  - Enter the player 2 name
-  - You have 3x3 grid and each cell has a number 
-  - Choose an available number and press Enter
+  - After running the game enter the player 1 name.
+  - Enter the player 2 name.
+  - You have 3x3 grid and each cell has a number.
+  - Choose an available number and press Enter.
 
 
 ## Authors
