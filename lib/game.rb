@@ -17,15 +17,17 @@ class Game
   end
 
   def row_win
-    true if (board_logic[0][0] == board_logic[0][1] && board_logic[0][1] == board_logic[0][2]) ||
-            (board_logic[1][0] == board_logic[1][1] && board_logic[1][1] == board_logic[1][2]) ||
-            (board_logic[2][0] == board_logic[2][1] && board_logic[2][1] == board_logic[2][2])
+    3.times do |i|
+      return true if board_logic[i].all?(board_logic[i][0])
+    end
+    false
   end
 
   def column_win
-    true if (board_logic[0][0] == board_logic[1][0] && board_logic[1][0] == board_logic[2][0]) ||
-            (board_logic[0][1] == board_logic[1][1] && board_logic[1][1] == board_logic[2][1]) ||
-            (board_logic[0][2] == board_logic[1][2] && board_logic[1][2] == board_logic[2][2])
+    3.times do |i|
+      return true if board_logic[0][i] == board_logic[1][i] && board_logic[1][i] == board_logic[2][i]
+    end
+    false
   end
 
   def diagonal_win
