@@ -34,6 +34,7 @@ while moves <= 9 && game_on
     puts "#{player.name} make your move: ".colorize(player.color)
     player_choice = gets.chomp.to_s
     until game.valid_move?(player_choice)
+      puts
       puts 'Enter an available number please!'
       player_choice = gets.chomp.to_s
     end

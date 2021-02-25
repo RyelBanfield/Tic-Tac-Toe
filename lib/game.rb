@@ -38,8 +38,9 @@ class Game
   end
 
   def valid_move?(player_move)
-    return false if player_move.strip.length == 0  
+    return false if player_move.strip.length.zero?
     return true if board_ui.include? player_move.strip
+
     false
   end
 end
