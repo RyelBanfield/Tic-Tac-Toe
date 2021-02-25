@@ -1,88 +1,44 @@
 #!/usr/bin/env ruby
-class Player
-  attr_accessor :name, :num_of_games, :num_of_wins, :num_of_losses
-
-  def initialize(name)
-    @name = name
-  end
-end
+require_relative '../lib/logic'
 
 puts
 puts 'Welcome to Tic-Tac-Toe!'
 puts
 puts 'Enter name for player 1: '
-player_one = gets.chomp
-player1 = Player.new(player_one)
+player_one = gets.chomp.capitalize
+player_one = Player.new(player_one, 'X')
 puts
 puts 'Enter name for player 2: '
-player_two = gets.chomp
-player2 = Player.new(player_two)
+player_two = gets.chomp.capitalize
+player_two = Player.new(player_two, 'O')
 puts
-puts 'The game will start now!'
-puts "#{player1.name} will be X & #{player2.name} will be O."
+game = Game.new
+puts "#{player_one.name} will be X & #{player_two.name} will be O."
+puts
 puts 'Game Instructions: Choose a available number to place your move!'
+puts 'The game will start now!'
 puts 'Have fun!'
-
+players = [player_one, player_two]
+player = players[0]
 game_on = true
-
-while game_on
+moves = 0
+while moves <= 9 && game_on
   puts
+  puts game.board_ui
   puts
-  puts '| 1 | 2 | 3 |
-  | 4 | 5 | 6 |
-  | 7 | 8 | 9 |'
-  puts
-  puts "#{player1.name} make your move: "
-  move = gets.chomp
-  puts
-  puts '| 1 | 2 | 3 |
-  | 4 | 5 | 6 |
-  | 7 | 8 | 9 |'
-  puts
-  puts "#{player2.name} make your move: "
-  move = gets.chomp
-  puts
-  puts '  | 1 | 2 | 3 |
-  | 4 | 5 | 6 |
-  | 7 | 8 | 9 |'
-  puts
-  puts "#{player1.name} make your move: "
-  move = gets.chomp
-  puts 'Invalid move. Please enter a number from (1-9)'
-  move = gets.chomp
-  puts
-  puts "#{player2.name} make your move: "
-  move = gets.chomp
-  puts 'You won congrats this is a winning move!'
-  puts
-  puts '| 1 | 2 | 3 |
-  | 4 | 5 | 6 |
-  | 7 | 8 | 9 |'
-  puts
-  puts "#{player1.name} make your move: "
-  move = gets.chomp
-  puts
-  puts '| 1 | 2 | 3 |
-  | 4 | 5 | 6 |
-  | 7 | 8 | 9 |'
-  puts
-  puts "#{player2.name} make your move: "
-  move = gets.chomp
-  puts
-  puts '  | 1 | 2 | 3 |
-  | 4 | 5 | 6 |
-  | 7 | 8 | 9 |'
-  puts
-  puts "#{player1.name} make your move: "
-  move = gets.chomp
-  puts 'You win.'
-  puts '  | 1 | 2 | 3 |
-  | 4 | 5 | 6 |
-  | 7 | 8 | 9 |'
-  puts
-  puts "#{player2.name} make your move: "
-  move = gets.chomp
-  puts 'You draw.'
-  game_on = false
-  move = move.to_i
+  if moves < 9
+    puts "#{player.name} make your move: "
+    player_choice = gets.chomp.to_s
+    game.update_board_ui(player_choice, player.sign)
+    game.update_board_logic(player_choice, player.sign)
+    if game.winning_condition
+      puts
+      puts game.board_ui
+      puts
+      puts "#{player.name} has won the game!"
+      game_on = false
+    end
+    player = player == players[0] ? players[1] : players[0]
+  end
+  moves += 1
 end
