@@ -22,6 +22,7 @@ players = [player_one, player_two]
 player = players[0]
 game_on = true
 moves = 0
+
 while moves <= 9 && game_on
   puts
   puts game.board_ui
@@ -29,6 +30,7 @@ while moves <= 9 && game_on
   if moves < 9
     puts "#{player.name} make your move: "
     player_choice = gets.chomp.to_s
+    
     game.update_board_ui(player_choice, player.sign)
     game.update_board_logic(player_choice, player.sign)
     if game.winning_condition
@@ -39,6 +41,8 @@ while moves <= 9 && game_on
       game_on = false
     end
     player = player == players[0] ? players[1] : players[0]
+  else
+    puts "This game is a draw"
   end
   moves += 1
 end
