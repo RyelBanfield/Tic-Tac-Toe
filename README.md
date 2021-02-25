@@ -42,7 +42,7 @@ To get a local copy up and running follow these simple example steps.
    ```git clone https://github.com/RyelBanfield/Tic-Tac-Toe.git```
   Or press green button Code > Download ZIP
   - Extract the file and navigate to the bin direcory 
-  ```cd ```
+  ```cd Tic-Tac-Toe```
   ```cd bin```
   - Run the game by ```./main.rb```
 
