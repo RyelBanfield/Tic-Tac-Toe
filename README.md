@@ -2,7 +2,7 @@
 
 # Tic-Tac-Toe
 
-![screenshot](./Screenshot.png)
+![screenshot](/Screenshot.png)
 
 
 
