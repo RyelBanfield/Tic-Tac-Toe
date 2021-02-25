@@ -1,12 +1,9 @@
 class Player
-  attr_accessor :name, :sign, :num_of_games, :num_of_wins, :num_of_losses
+  attr_accessor :name, :sign
 
   def initialize(name, sign)
     @name = name
     @sign = sign
-    # num_of_games = 0
-    # num_of_wins = 0
-    # num_of_losses = 0
   end
 end
 
