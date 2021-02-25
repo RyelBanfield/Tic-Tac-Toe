@@ -30,7 +30,10 @@ while moves <= 9 && game_on
   if moves < 9
     puts "#{player.name} make your move: "
     player_choice = gets.chomp.to_s
-    
+    while !game.valid_move?(player_choice)
+      puts "Enter an available number please!"
+      player_choice = gets.chomp.to_s
+    end
     game.update_board_ui(player_choice, player.sign)
     game.update_board_logic(player_choice, player.sign)
     if game.winning_condition
