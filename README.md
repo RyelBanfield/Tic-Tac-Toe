@@ -39,12 +39,12 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
   - Clone the repository on local machine by open cmd or terminal
-   '''git clone https://github.com/RyelBanfield/Tic-Tac-Toe.git'''
+   ```git clone https://github.com/RyelBanfield/Tic-Tac-Toe.git```
   Or press green button Code > Download ZIP
   - Extract the file and navigate to the bin direcory 
-  '''cd '''
-  '''cd bin'''
-  - Run the game by '''./main.rb'''
+  ```cd ```
+  ```cd bin```
+  - Run the game by ```./main.rb```
 
 ### Gameplay Instructions
   - After running the game enter the player 1 name
