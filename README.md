@@ -16,9 +16,9 @@
 
 👤 **Author2**
 
-- GitHub: [@Bishoy-Samwel](https://github.com/Bishoy-Samwel)
-- LinkedIn: [Bishoy Samwel](https://www.linkedin.com/in/bishoy-samwuel-ss/)
-- Twitter: [@bisho](https://twitter.com/BishoFaheem15)
+- GitHub: [@Arinpe](https://github.com/Arinpe)
+- LinkedIn: [Adesuyi Adetola](https://www.linkedin.com/in/adesuyi-adetola-7b4451111/)
+- Twitter: [@_detola_](https://twitter.com/_detola_)
 
 ## 🤝 Contributing
 
