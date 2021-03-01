@@ -31,8 +31,10 @@ class Game
   end
 
   def diagonal_win
-    true if (board_logic[0][0] == board_logic[1][1] && board_logic[1][1] == board_logic[2][2]) ||
-            (board_logic[0][2] == board_logic[1][1] && board_logic[1][1] == board_logic[2][0])
+    return true if (board_logic[0][0] == board_logic[1][1] && board_logic[1][1] == board_logic[2][2]) ||
+                   (board_logic[0][2] == board_logic[1][1] && board_logic[1][1] == board_logic[2][0])
+
+    false
   end
 
   def winning_condition
