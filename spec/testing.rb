@@ -21,5 +21,26 @@ describe Game do
     end
   end
 
+  describe 'column_win' do
+    it 'returns false unless there is a column win' do
+      expect(game.column_win).to eql(false)
+    end
+  end
+  describe 'diagonal_win' do
+    it 'returns false unless there is a diagonal win' do
+      expect(game.diagonal_win).to eql(false)
+    end
+  end
+  describe 'winning_condition' do
+    it 'returns false unless there is a winning condition' do
+      expect(game.winning_condition).to eql(false)
+    end
+  end
+  describe 'valid_move?' do
+    it 'returns false unless there a valid move' do
+      expect(game.valid_move?('10')).to eql(false)
+    end
+  end
+
   
 end
