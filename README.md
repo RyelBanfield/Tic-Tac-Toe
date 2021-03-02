@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Tic-Tac-Toe TESTING WITH
+# Tic-Tac-Toe TESTING WITH RSPEC
 
 ![screenshot](./Screenshot.png)
 
