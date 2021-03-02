@@ -6,6 +6,12 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com)
 
+## Run
+We have already created an rspec-testing file called testing_spec.rb.
+- go to the folder inside your terminal type rspec
+- If all test pass you will see:
+ `9 examples, 0 failures`
+
 ## Authors
 
 👤 **Ryel Banfield**

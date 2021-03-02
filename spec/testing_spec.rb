@@ -1,4 +1,5 @@
 require_relative '../lib/game'
+require_relative '../lib/player'
 
 describe Game do
   let(:game) { Game.new }
@@ -42,6 +43,19 @@ describe Game do
   describe 'valid_move?' do
     it 'returns false unless there a valid move' do
       expect(game.valid_move?('10')).to eql(false)
+    end
+  end
+end
+
+describe Player do
+  player = Player.new('Ryel', 'X', :blue)
+
+  describe 'initialize' do
+    it 'creates a player object' do
+      expect(player.name).to eql('Ryel')
+    end
+    it 'creates a player object' do
+      expect(player.name).not_to eql('Peter')
     end
   end
 end
